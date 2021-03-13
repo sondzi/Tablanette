@@ -7,5 +7,5 @@ JavaScript
 
 ## Includes:
 
-*Generating cards
-*Shuffling the deck
+* Generating cards
+* Shuffling the deck
