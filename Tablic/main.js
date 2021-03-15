@@ -39,5 +39,54 @@ function shuffleCards(cardz) {
     return shuffledDeck;
 }
 
-console.log(shuffledDeck.length);
+class Player {
+    constructor(playerName) {
+        this.playerCards = [];
+        this._playerName = playerName;
+    }
 
+    get isHandEmpty() {
+        if (this.playerCards.length === 0 || this.playerCards.length === 3) {
+            return true;
+        }
+        return false;
+    }
+
+    passThreeCards() {
+        let threeCards = [];
+        for (let i = 0; i < 3; i++) {
+            threeCards.push(shuffledDeck.pop());
+        }
+        if (this.isHandEmpty) {
+            this.playerCards.push(...threeCards);
+        }
+        return this.playerCards;
+    }
+}
+
+const player1 = new Player('Player 1');
+const player2 = new Player('Player 2');
+
+const table = [];
+console.log('table', table)
+function passFourCardsToTable() {
+    let tableCards = [];
+    for (let i = 0; i < 4; i++) {
+        tableCards.push(shuffledDeck.pop());
+    }
+    if(table.length === 0){
+        table.push(...tableCards);
+    }
+    return table;
+}
+
+
+player1.passThreeCards();
+player2.passThreeCards();
+player1.passThreeCards();
+player2.passThreeCards();
+
+console.log('player1 cards', player1.playerCards);
+console.log('player2 cards', player2.playerCards);
+console.log('table posle funkcije', passFourCardsToTable());
+console.log('shuffled deck remaining cards', shuffledDeck.length);
