@@ -9,3 +9,4 @@ JavaScript
 
 * Generating cards
 * Shuffling the deck
+* Passing cards
